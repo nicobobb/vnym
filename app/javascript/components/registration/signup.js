@@ -6,16 +6,18 @@ import RaisedButton from 'material-ui/RaisedButton';
 import { Base, styles } from './base';
 import reqwest from 'reqwest';
 
-export class Login extends Base {
+
+export class SignUp extends Base {
 
   submit(){
     reqwest({
-      url: '/users/sign_in.json',
+      url: '/users.json',
       method: 'POST',
       data: {
         user:{
           email: this.state.email,
           password: this.state.password,
+          passwordConfirmation: this.state.passwordConfirmation
         }
       },
       headers:{
@@ -24,16 +26,24 @@ export class Login extends Base {
     }).then(data => {
       console.log(data);
       this.reload();
-    }).catch(err => this.handError(err));
+    }).catch(err => this.handleError(err));
   }
 
-  handError(err){
-    const errorMessage = JSON.parse(err.response).error;
+  handleError(err){
+    console.log(err);
+    const jsonError = JSON.parse(err.response);
+    const errors = jsonError.errors;
+    let errorsResponse = [];
+    for(let key in errors){
+      errorsResponse.push(<li>{errors[key]}</li>)
+    }
 
     this.setState({
-      error: errorMessage
+      error: errorsResponse
     })
+
   }
+
 
   render(){
     return (
@@ -66,14 +76,25 @@ export class Login extends Base {
         </div>
 
         <div>
+          <FormsyText
+          onChange={(e)=> this.syncField(e,"passwordConfirmation") }
+            name="password"
+            required
+            floatingLabelFocusStyle={styles.floatingLabelFocusStyle}
+            underlineFocusStyle={styles.underlineStyle}
+            type="password"
+            floatingLabelText="Confirmar contraseña" />
+        </div>
+
+        <div>
           <RaisedButton
             style={styles.buttonTop}
             disabled={!this.state.canSubmit}
             backgroundColor={styles.red}
             labelColor='#ffffff'
             type="submit"
-            label="Iniciar sesión"/>
-            <a href= "#" onClick={this.props.toggle} style={styles.leftSpace}> Crear cuenta </a>
+            label="Crear cuenta"/>
+            <a href= "#" onClick={this.props.toggle} style={styles.leftSpace}> Ya tengo cuenta </a>
         </div>
         </Formsy.Form>
       </MuiThemeProvider>

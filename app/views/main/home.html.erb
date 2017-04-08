@@ -1,1 +1,7 @@
 <%= react_component("Registration") %>
+
+<% if user_signed_in? %>
+  <p>
+    Hola Usuario
+  </p>
+<% end %>
