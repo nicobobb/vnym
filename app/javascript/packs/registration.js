@@ -10,7 +10,7 @@ class Registration extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      showLogin: false
+      showLogin: true
     }
     this.toggle = this.toggle.bind(this);
   }

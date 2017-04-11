@@ -1,7 +1,69 @@
-<%= react_component("Registration") %>
+<nav class="navbar navbar-inverse navbar-fixed-top ">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">LOGO</a>
+        </div>
 
-<% if user_signed_in? %>
-  <p>
-    Hola Usuario
-  </p>
-<% end %>
+
+                <button type="button" class="btn btn-primary btn-lg navbar-right" data-toggle="modal" data-target="#myModal">
+           Lorem ipsum
+         </button>
+      </div>
+    </nav>
+    <!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Iniciar Sesión</h4>
+      </div>
+      <div class="modal-body">
+        <%= react_component("Registration") %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+    <!-- FIN Modal -->
+
+
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container">
+        <h1>ipsum nesciunt.</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quia, excepturi asperiores nisi facere similique esse, saepe tempore nihil! Eveniet quia aliquid dolores tempora molestiae reprehenderit sed odit ducimus blanditiis?.</p>
+      </div>
+    </div>
+
+    <div class="container">
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="col-md-6">
+          <h2> excepturi animi perferendis ipsa id.</h2>
+          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+          <p><a class="btn btn-default" href="#" role="button">Fusce dapibus &raquo;</a></p>
+       </div>
+        <div class="col-md-6">
+          <h2>Más de 45,000 cursos</h2>
+          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+          <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+        </div>
+      </div>
+
+      <hr>
+
+      <footer>
+        <p>&copy; 2017 , Inc.</p>
+      </footer>
+
+
+    </div> <!-- /container -->
